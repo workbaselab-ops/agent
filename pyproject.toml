@@ -1,0 +1,13 @@
+[project]
+name = "agent"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "workbaselab-ops", email = "workbaselab@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "langchain-openai>=1.6.7",
+    "python-dotenv>=1.2.3",
+]
