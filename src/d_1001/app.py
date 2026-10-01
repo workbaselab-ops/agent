@@ -1,6 +1,7 @@
-from page86 import page86_ai_msg
+from .page86 import page86_ai_msg
 
 def sub():
+    pass
 
 
 def main() -> None:
