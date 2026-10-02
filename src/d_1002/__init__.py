@@ -11,4 +11,4 @@ __all__ = ["main"]
 
 
 # ---프로젝트 초기화---
-print("프로젝트 초기화 init") 
+print("Projext__init__", "-"*20) 
