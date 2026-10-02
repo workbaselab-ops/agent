@@ -3,3 +3,5 @@ def main() -> None:
    
    # 작업시작
    from .mypy import match
+   from .mypy import function
+   from .mypy import oop 
