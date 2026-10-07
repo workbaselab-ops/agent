@@ -51,6 +51,7 @@ class BasicToolNode:
     def __init__(self, tools: list) -> None:
         self.tools_by_name = {tool.name: tool for tool in tools} # ["tavily_search" : TavilySearch()]
 
+    # inputs: dict를 객체처럼 사용하기 위해서.
     def __call__(self, inputs: dict):
         if messages := inputs.get("messages", []): # [ 1 ]
             message = messages[-1]
@@ -112,7 +113,7 @@ graph = graph_builder.compile()
 def invoke():
     response = graph.invoke(
         {
-            "messages": ["Langgraph가 무엇인가요?"]
+            "messages": ["single-agent가 무엇인가요? 핵심 내용만 간략히"]
         }
     )
 
@@ -123,7 +124,7 @@ def invoke():
 async def ainvoke():
     response = await graph.ainvoke(
         {
-            "messages": ["Langgraph가 무엇인가요?"]
+            "messages": ["single-agent가 무엇인가요? 핵심 내용만 간략히"]
         }
     )
 
@@ -134,7 +135,7 @@ async def ainvoke():
 def stream():
     response = graph.stream(
         {
-            "messages": ["Langgraph가 무엇인가요?"]
+            "messages": ["single-agent가 무엇인가요? 핵심 내용만 간략히"]
         }
     )
     for chunk in response:
@@ -146,7 +147,7 @@ def stream():
 def stream_values():
     response = graph.stream(
         {
-            "messages": ["Langgraph가 무엇인가요?"]
+            "messages": ["single-agent가 무엇인가요? 핵심 내용만 간략히"]
         },
         stream_mode="values"
     )
@@ -163,7 +164,7 @@ def stream_values():
 def stream_messages():
     response = graph.stream(
         {
-            "messages": ["Langgraph가 무엇인가요?"]
+            "messages": ["single-agent가 무엇인가요? 핵심 내용만 간략히"]
         },
         stream_mode="messages"
     )
@@ -175,7 +176,7 @@ def stream_messages():
 async def astream():
     response = graph.astream(
         {
-            "messages": ["Langgraph가 무엇인가요?"]
+            "messages": ["single-agent가 무엇인가요? 핵심 내용만 간략히"]
         }
     )
     async for chunk in response:
@@ -194,3 +195,14 @@ if __name__ == "__main__":
     # stream()
     # stream_values()
     # stream_messages()
+
+# 결과
+# (ex1006) E:\agent26_agent\agent\ex1006>uv run src\ex1006\agent.py       
+# ================================ Human Message =================================
+
+# single-agent가 무엇인가요? 핵심 내용만 간략히
+# ================================== Ai Message ==================================
+
+# Single-agent 시스템은 하나의 주체(agent)가 작동하며 주어진 환경에서 임무나 목표를 수행하는 시스템을 말합니다. 
+# 이러한 시스템은 주로 단일의 인공 지능이나 로봇이 주어진 환경에서 자율적으로 학습하거나 행동하는 데 초점을 맞춥니다. 
+# 예를 들어, 한 대의 로봇 청소기가 방을 청소하는 작업이 single-agent 시스템의 일례입니다.
