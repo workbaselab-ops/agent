@@ -73,7 +73,7 @@ if __name__== "__main__":
 
     for i, quesiton in enumerate(questions, 1):
         print(f"\n{'='*5}")
-        print(f"🔄 턴 {i}: {question}")
+        print(f"🔄 턴 {i}: {quesiton}")
         print('='*50)
 
         response = agent_with_memory.invoke(
