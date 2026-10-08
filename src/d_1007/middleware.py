@@ -1,9 +1,8 @@
 from dotenv import load_dotenv
 
-from langchain_openai import ChatOpenAI
 from langchain.agents import create_agent
-from langchain.agents.middleware import ModelRequest, ModelResponse
-from langchain.agents.middleware import wrap_model_call
+from langchain.agents.middleware import ModelRequest, ModelResponsek, wrap_model_call
+from langchain_openai import ChatOpenAI
 from langgraph.runtime import Runtime
 
 from tools import tools
