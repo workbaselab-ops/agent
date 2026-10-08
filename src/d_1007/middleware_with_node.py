@@ -34,7 +34,8 @@ def content_filter_middleware(state: AgentState, runtime: Runtime):    # [1]
         # 금지어 검사
         for word in BLOCKED_WORDS:
             if word in content:
-                print(f"[before_mode] 🚫 금지어 감지: '{word}'")
+                print(f"[before_model] 🚫 금지어 감지: '{word}'")
+                raise ValueError(f"금지어 '{word}'가 포함되어 있습니다")
 
         print(f"[before_model] ✅ 입력 검증 통과")
 
@@ -99,7 +100,7 @@ if __name__== "__main__":
             for node, value in chunk.items():
                 if node:
                     print(f"\n-- {node} --")
-                if value and "message" in value:
+                if value and "messages" in value:
                     print(value['messages'][0].content)
 
     except ValueError as e:
