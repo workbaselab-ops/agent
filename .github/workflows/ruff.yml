@@ -1,5 +1,5 @@
 name: Ruff                                   # ① Actions 화면에 보일 이름
-on: [ push, pull_request ]                   # ② 푸시할 때, PR을 열 때 실행
+on: workflow_dispatch                        # ② 수동 실행만 — Actions 탭의 Run workflow 버튼을 눌렀을 때(수업 저장소라 푸시마다는 안 돌림)
 jobs:
   ruff:
     runs-on: ubuntu-latest                   # ③ GitHub가 빌려주는 리눅스 컴퓨터
