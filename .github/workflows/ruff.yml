@@ -1,0 +1,16 @@
+name: Ruff                                   # ① Actions 화면에 보일 이름
+on: [ push, pull_request ]                   # ② 푸시할 때, PR을 열 때 실행
+jobs:
+  ruff:
+    runs-on: ubuntu-latest                   # ③ GitHub가 빌려주는 리눅스 컴퓨터
+    steps:
+      - uses: actions/checkout@v7            # ④ 내 저장소 코드를 받아옴
+      - name: 린터 검사 (ruff check)
+        uses: astral-sh/ruff-action@v4.1.0   # ⑤ args를 안 쓰면 기본값 "check"
+        with:
+          src: "./src"                       # ⑥ src만 검사(강사 코드 ex/ 제외)
+      - name: 모양 검사 (ruff format --check, 고치지 않고 판정만)
+        uses: astral-sh/ruff-action@v4.1.0
+        with:
+          args: "format --check --diff"      # ⑦ 판정만 + 고칠 곳을 로그에 보여 줌
+          src: "./src"
